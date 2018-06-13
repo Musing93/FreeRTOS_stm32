@@ -15,7 +15,6 @@ int main(void)
 	APPTaskCreate();
 	vTaskStartScheduler();
 	while(1);
-		
 }
 
 //设备初始化

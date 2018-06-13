@@ -196,7 +196,7 @@
  * 下面的这个宏：configKERNEL_INTERRUPT_PRIORITY
  * SysTick的优先级我们一般配置为最低，即0xf 。这样可以提高系统的实时响应能力，即其他的外部中断可以及时的得到响应。
  */
-#define configLIBRARY_LOWEST_INTERRUPT_PRIORITY			0xf
+ #define configLIBRARY_LOWEST_INTERRUPT_PRIORITY			0xf   
 #define configKERNEL_INTERRUPT_PRIORITY 		( configLIBRARY_LOWEST_INTERRUPT_PRIORITY << (8 - configPRIO_BITS) )
 
 /*===========================================可屏蔽的中断优先级配置====================================================*/
@@ -215,8 +215,7 @@
  *
  */
 #define configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY	5
-#define configMAX_SYSCALL_INTERRUPT_PRIORITY 	( configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY << (8 - configPRIO_BITS) )
-
+#define configMAX_SYSCALL_INTERRUPT_PRIORITY 	( configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY << (8 - configPRIO_BITS) )//configPRIO_BITS =4
 /*
  * 断言配置，一般调试的时候用，发布的时候不用
  */

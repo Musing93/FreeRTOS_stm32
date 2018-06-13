@@ -30,6 +30,11 @@
 /* Includes ------------------------------------------------------------------*/
 #include "stm32f4xx_it.h"
 #include "stm32f4xx.h"
+#include "FreeRTOS.h"
+#include "task.h"
+#include "queue.h"
+#include "list.h"
+#include "semphr.h"
 #include "my_include.h"//自定义头文件库
 /** @addtogroup STM32F429I_DISCOVERY_Examples
   * @{
@@ -51,17 +56,24 @@
 /******************************************************************************/
 extern uint8_t ucTemp;
 extern uint8_t RxFlag;
-
+extern TaskHandle_t xHandleTaskLed1;
+extern SemaphoreHandle_t  Binary_USART;
 //USART2中断函数
 void USART2_IRQHandler (void)
 {
-	//if(USART_GetFlagStatus(USART2,))
-	if(USART_GetITStatus(USART2,USART_IT_RXNE)!=RESET)
+	static BaseType_t xHigherPriorityTaskWoke;//保存是否有更高优先级任务就绪
+
+	if((USART_GetITStatus(USART2,USART_IT_RXNE)!=RESET))//收到数据且二值信号非空
 	{
+		LED2_ON;
 		ucTemp=USART_ReceiveData(USART2);
-		RxFlag=1;
-		//USART_SendData(USART2,ucTemp);
+		LED2_OFF;
+		LED1_ON;
+		xSemaphoreGiveFromISR(Binary_USART,&xHigherPriorityTaskWoke);
+		LED1_OFF;
+		RxFlag=1;		
 	}
+	portYIELD_FROM_ISR( xHigherPriorityTaskWoke );//注意要放在if外
 }
 
 /**

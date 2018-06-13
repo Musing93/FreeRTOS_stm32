@@ -4,10 +4,10 @@
 static void NVIC_Configuration(void)
 {
 	NVIC_InitTypeDef NVIC_Structure;
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);//四位全做优先级
+//	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_4);//四位全做优先级
 	
 	NVIC_Structure.NVIC_IRQChannel=USART2_IRQ;
-	NVIC_Structure.NVIC_IRQChannelPreemptionPriority=10;//抢占优先级设置为10
+	NVIC_Structure.NVIC_IRQChannelPreemptionPriority=8;//抢占优先级设置为10
 	NVIC_Structure.NVIC_IRQChannelCmd=ENABLE;
 	NVIC_Structure.NVIC_IRQChannelSubPriority=0;
 	

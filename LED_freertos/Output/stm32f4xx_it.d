@@ -38,9 +38,6 @@
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_fmc.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h
 ..\..\output\stm32f4xx_it.o: ..\..\Libraries\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h
-..\..\output\stm32f4xx_it.o: ..\..\User\my_include.h
-..\..\output\stm32f4xx_it.o: ..\..\User\./led/bsp_led.h
-..\..\output\stm32f4xx_it.o: ..\..\User\./key/bsp_key.h
 ..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\FreeRTOS.h
 ..\..\output\stm32f4xx_it.o: D:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
 ..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\FreeRTOSConfig.h
@@ -52,6 +49,11 @@
 ..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\task.h
 ..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\list.h
 ..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\queue.h
+..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\list.h
+..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\semphr.h
+..\..\output\stm32f4xx_it.o: ..\..\User\my_include.h
+..\..\output\stm32f4xx_it.o: ..\..\User\./led/bsp_led.h
+..\..\output\stm32f4xx_it.o: ..\..\User\./key/bsp_key.h
 ..\..\output\stm32f4xx_it.o: ..\..\FreeRTOS\include\list.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\./beep/bsp_beep.h
 ..\..\output\stm32f4xx_it.o: ..\..\User\./usart/USART.h

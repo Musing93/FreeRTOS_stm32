@@ -1,1 +1,1 @@
-test
+binary_test
